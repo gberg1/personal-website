@@ -1,4 +1,6 @@
 var React = require('react');
+var Header = require('./header');
+var Footer = require('./footer');
 
 var MainPage = React.createClass({
   propTypes: {
