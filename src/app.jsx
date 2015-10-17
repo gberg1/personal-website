@@ -1,12 +1,19 @@
 var React = require('react');
 
-var Hello = React.createClass({
+var MainPage = React.createClass({
+  propTypes: {
+    children: PropTypes.element.isRequired,
+    error: PropTypes.object
+  },
   render: function() {
-    return <h1 className="red">
-      Hello!
-    </h1>
+    return !this.props.error ? (
+      <div>
+        <Header />
+        {this.props.children}
+        <Footer />
+      </div>
+    ) : this.props.children;
   }
 });
 
-var element = React.createElement(Hello, {});
-React.render(element, document.querySelector('.container'));
+React.render(MainPage, document.querySelector('.container'));
